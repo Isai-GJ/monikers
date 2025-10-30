@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monikers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-menu" class="screen active">
+        <h1>Monikers</h1>
+        <button id="start-game-btn">Iniciar Partida</button>
+    </div>
+
+    <div id="team-setup" class="screen">
+        <h2>Nombres de los Equipos</h2>
+        <div id="team-inputs">
+            <input type="text" placeholder="Nombre del Equipo 1" value="Equipo 1">
+            <input type="text" placeholder="Nombre del Equipo 2" value="Equipo 2">
+        </div>
+        <button id="to-deck-setup-btn">Siguiente</button>
+    </div>
+
+    <div id="deck-setup" class="screen">
+        <h2>Tamaño del Mazo</h2>
+        <p>Elige cuántas cartas usar (1-100)</p>
+        <input type="number" id="deck-size-input" min="1" max="100" value="40">
+        <button id="create-deck-btn">Crear Mazo y Empezar</button>
+    </div>
+
+    <div id="ready-screen" class="screen">
+        <h2 id="round-title">Ronda 1</h2>
+        <div id="round-rules">
+            <p>Aquí van las reglas de la ronda.</p>
+        </div>
+        <h3 id="current-team-turn"></h3>
+        <button id="start-turn-btn">Comenzar Turno</button>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div id="timer-box">
+            <div id="timer">5</div>
+        </div>
+        <div id="card-container">
+            <div class="card">
+                <div id="card-category">Categoría</div>
+                <div id="card-phrase">Palabra o Frase</div>
+                <div id="card-origin">Origen</div>
+            </div>
+        </div>
+        <div id="game-buttons">
+            <button id="pass-btn">Pasar</button>
+            <button id="guessed-btn">¡Adivinado!</button>
+        </div>
+        <div id="live-scores">
+            <!-- Las puntuaciones en vivo se insertarán aquí -->
+        </div>
+    </div>
+
+    <div id="round-end-screen" class="screen">
+        <h2>Fin de la Ronda</h2>
+        <div id="score-summary"></div>
+        <button id="next-round-btn">Siguiente Ronda</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
