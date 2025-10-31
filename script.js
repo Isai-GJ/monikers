@@ -34,13 +34,13 @@ const timerDisplay = document.getElementById('timer');
 
 // --- SONIDOS ---
 const sounds = {
-    firstMenu: new Audio('sounds/first-menu.mp3'),
     start: new Audio('sounds/start.wav'),
     tick: new Audio('sounds/clock-tick.mp3'),
     guessed: new Audio('sounds/guessed.wav'),
     passed: new Audio('sounds/passed.mp3'),
     endTurn: new Audio('sounds/boxing-bell.mp3'),
-    victory: new Audio('sounds/victory.mp3')
+    victory: new Audio('sounds/victory.mp3'),
+    click: new Audio('sounds/click.mp3')
 };
 
 // --- INICIALIZACIÓN Y CONFIGURACIÓN ---
@@ -86,12 +86,13 @@ async function loadWords() {
 
 function setupEventListeners() {
     document.getElementById('start-game-btn').addEventListener('click', () => {
-        playSound('firstMenu');
+        playSound('click');
         showScreen('teamSetup');
     });
 
     document.getElementById('to-deck-setup-btn').addEventListener('click', () => {
         const teamInputs = document.querySelectorAll('#team-inputs input');
+        playSound('click');
         teams = Array.from(teamInputs).map((input, index) => ({
             name: input.value || `Equipo ${index + 1}`,
             score: 0
@@ -112,6 +113,7 @@ function setupEventListeners() {
 }
 
 function createDeckAndStart() {
+    playSound('click');
     const deckSize = parseInt(document.getElementById('deck-size-input').value);
     if (isNaN(deckSize) || deckSize < 1 || deckSize > 100) {
         alert("Por favor, introduce un número entre 1 y 100.");
@@ -193,6 +195,7 @@ function endRound() {
 }
 
 function setupNextRound() {
+    playSound('click');
     // La lógica de las reglas ahora está en updateReadyScreen(), llamada por showReadyScreen()
     
     // Reutilizar las cartas adivinadas para la siguiente ronda
